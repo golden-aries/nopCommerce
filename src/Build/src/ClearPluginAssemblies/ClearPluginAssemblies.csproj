@@ -7,5 +7,15 @@
     <StartupObject />
   </PropertyGroup>
 
-
+  <PropertyGroup>
+    <DeployDst>$([System.IO.Path]::GetFullPath($([System.IO.Path]::Combine($(MSBuildProjectDirectory),..,..))))</DeployDst>
+  </PropertyGroup>
+  
+  <Target Name="CopyClearPluginDll" AfterTargets="Build">
+    <!--<Message Text="Copying $(ProjectDir)$(OutputPath)$(AssemblyName).dll to $(DeployDst)" Importance="high" />-->
+    <Copy 
+      SourceFiles="$(ProjectDir)$(OutputPath)$(AssemblyName).dll" 
+      DestinationFolder="$(DeployDst)"
+      SkipUnchangedFiles="true" />
+  </Target>
 </Project>

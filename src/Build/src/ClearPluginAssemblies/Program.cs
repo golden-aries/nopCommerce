@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 
@@ -55,6 +56,7 @@ namespace ClearPluginAssemblies
 
         private static void Main(string[] args)
         {
+            //Debugger.Launch();
             var outputPath = string.Empty;
             var pluginPaths = string.Empty;
             var saveLocalesFolders = true;
